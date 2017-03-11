@@ -1,0 +1,50 @@
+version: '2'
+networks:
+  wagesnetwrk:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.238.0/24
+        gateway: 172.16.238.1
+volumes:
+  mariadb:
+services:
+
+  wages:
+    image: rivetmichael/apache-php
+    restart: always
+    volumes:
+      -  /home/icamara/acceleradvisory/projects/wages:/var/www/html
+      -  /home/icamara/.ssh:/root/.ssh
+    environment:
+      - APACHE_DOC_ROOT=/var/www/html/web/
+      - VIRTUAL_HOST=acceler-pc-wages.dev
+    depends_on:
+      - db
+    links:
+      - db:db
+    ports:
+      - 8011:80
+    networks:
+      - wagesnetwrk
+  db:
+      image: mariadb
+      container_name: mariadb-accelerwages
+      volumes:
+        - mariadb:/var/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+      ports:
+        - 3307:3306
+      networks:
+        - wagesnetwrk
+  pma:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      - VIRTUAL_HOST=acceler-pc-wages.pma
+    ports:
+      - 8080:80
+    networks:
+      - wagesnetwrk
