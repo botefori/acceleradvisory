@@ -1,0 +1,3 @@
+wages_homepage:
+    path:     /
+    defaults: { _controller: wagesBundle:Default:index }
