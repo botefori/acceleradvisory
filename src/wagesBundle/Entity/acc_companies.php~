@@ -693,28 +693,4 @@ class acc_companies
     {
         return $this->retirementContractNum;
     }
-
-    /**
-     * Set retirement
-     *
-     * @param \wagesBundle\Entity\acc_retirement_organisation $retirement
-     *
-     * @return acc_companies
-     */
-    public function setRetirement(\wagesBundle\Entity\acc_retirement_organisation $retirement)
-    {
-        $this->retirement = $retirement;
-
-        return $this;
-    }
-
-    /**
-     * Get retirement
-     *
-     * @return \wagesBundle\Entity\acc_retirement_organisation
-     */
-    public function getRetirement()
-    {
-        return $this->retirement;
-    }
 }

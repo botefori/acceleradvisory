@@ -5,12 +5,12 @@ namespace wagesBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * mutuelle
+ * acc_retirement_organisation
  *
- * @ORM\Table(name="acc_mutuelle")
- * @ORM\Entity(repositoryClass="wagesBundle\Repository\acc_mutuelleRepository")
+ * @ORM\Table(name="acc_retirement_organisation")
+ * @ORM\Entity(repositoryClass="wagesBundle\Repository\acc_retirement_organisationRepository")
  */
-class acc_mutuelle
+class acc_retirement_organisation
 {
     /**
      * @var int
@@ -28,6 +28,10 @@ class acc_mutuelle
      */
     private $designation;
 
+    /**
+     *  @ORM\OneToMany(targetEntity="acc_companies", mappedBy="retirement")
+     */
+    protected $companies;
 
     /**
      * Get id
@@ -44,7 +48,7 @@ class acc_mutuelle
      *
      * @param string $designation
      *
-     * @return mutuelle
+     * @return acc_retirement_organisation
      */
     public function setDesignation($designation)
     {
@@ -62,11 +66,6 @@ class acc_mutuelle
     {
         return $this->designation;
     }
-
-    /**
-     *  @ORM\OneToMany(targetEntity="acc_companies", mappedBy="mutuelle")
-     */
-    protected $companies;
     /**
      * Constructor
      */
@@ -80,7 +79,7 @@ class acc_mutuelle
      *
      * @param \wagesBundle\Entity\acc_companies $company
      *
-     * @return acc_mutuelle
+     * @return acc_retirement_organisation
      */
     public function addCompany(\wagesBundle\Entity\acc_companies $company)
     {
