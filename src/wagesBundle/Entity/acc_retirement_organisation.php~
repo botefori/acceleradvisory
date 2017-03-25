@@ -66,5 +66,45 @@ class acc_retirement_organisation
     {
         return $this->designation;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->companies = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add company
+     *
+     * @param \wagesBundle\Entity\acc_companies $company
+     *
+     * @return acc_retirement_organisation
+     */
+    public function addCompany(\wagesBundle\Entity\acc_companies $company)
+    {
+        $this->companies[] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Remove company
+     *
+     * @param \wagesBundle\Entity\acc_companies $company
+     */
+    public function removeCompany(\wagesBundle\Entity\acc_companies $company)
+    {
+        $this->companies->removeElement($company);
+    }
+
+    /**
+     * Get companies
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompanies()
+    {
+        return $this->companies;
+    }
+}
