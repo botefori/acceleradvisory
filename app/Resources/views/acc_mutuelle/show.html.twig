@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Acc_mutuelle</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ acc_mutuelle.id }}</td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td>{{ acc_mutuelle.designation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mutuelle_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('mutuelle_edit', { 'id': acc_mutuelle.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Acc_regime_prevoyances list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for acc_regime_prevoyance in acc_regime_prevoyances %}
+            <tr>
+                <td><a href="{{ path('prevoyances_show', { 'id': acc_regime_prevoyance.id }) }}">{{ acc_regime_prevoyance.id }}</a></td>
+                <td>{{ acc_regime_prevoyance.designation }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('prevoyances_show', { 'id': acc_regime_prevoyance.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('prevoyances_edit', { 'id': acc_regime_prevoyance.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('prevoyances_new') }}">Create a new acc_regime_prevoyance</a>
+        </li>
+    </ul>
+{% endblock %}

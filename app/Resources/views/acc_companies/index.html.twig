@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Acc_companies list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Socialrason</th>
+                <th>Siret</th>
+                <th>Phone</th>
+                <th>Ccn</th>
+                <th>Existsbefore</th>
+                <th>Existsbeforevalue</th>
+                <th>Employeesnumber</th>
+                <th>Declacadres</th>
+                <th>Cadrenumber</th>
+                <th>Ccpyesno</th>
+                <th>Ccp</th>
+                <th>Ssw</th>
+                <th>Rrcname</th>
+                <th>Rrcnumcontract</th>
+                <th>Mutuellecontractnum</th>
+                <th>Mutuellemonthlybonusamount</th>
+                <th>Mutuellamountonemplayercharge</th>
+                <th>Prevoyancecontractnum</th>
+                <th>Retirementcontractnum</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for acc_company in acc_companies %}
+            <tr>
+                <td><a href="{{ path('companies_show', { 'id': acc_company.id }) }}">{{ acc_company.id }}</a></td>
+                <td>{{ acc_company.socialrason }}</td>
+                <td>{{ acc_company.siret }}</td>
+                <td>{{ acc_company.phone }}</td>
+                <td>{{ acc_company.ccn }}</td>
+                <td>{% if acc_company.existsbefore %}Yes{% else %}No{% endif %}</td>
+                <td>{{ acc_company.existsbeforevalue }}</td>
+                <td>{{ acc_company.employeesnumber }}</td>
+                <td>{% if acc_company.declacadres %}Yes{% else %}No{% endif %}</td>
+                <td>{{ acc_company.cadrenumber }}</td>
+                <td>{% if acc_company.ccpyesno %}Yes{% else %}No{% endif %}</td>
+                <td>{{ acc_company.ccp }}</td>
+                <td>{{ acc_company.ssw }}</td>
+                <td>{{ acc_company.rrcname }}</td>
+                <td>{{ acc_company.rrcnumcontract }}</td>
+                <td>{{ acc_company.mutuellecontractnum }}</td>
+                <td>{{ acc_company.mutuelleMonthlyBonusAmount }}</td>
+                <td>{{ acc_company.mutuellAmountonEmplayerCharge }}</td>
+                <td>{{ acc_company.prevoyanceContractNum }}</td>
+                <td>{{ acc_company.retirementContractNum }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('companies_show', { 'id': acc_company.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('companies_edit', { 'id': acc_company.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('companies_new') }}">Create a new acc_company</a>
+        </li>
+    </ul>
+{% endblock %}

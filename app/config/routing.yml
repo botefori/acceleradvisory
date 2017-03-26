@@ -1,3 +1,27 @@
+wages_acc.regime.prevoyance:
+    resource: "@wagesBundle/Controller/acc_regime_prevoyanceController.php"
+    type:     annotation
+
+wages_acc.retirement.organisation:
+    resource: "@wagesBundle/Controller/acc_retirement_organisationController.php"
+    type:     annotation
+
+wages_acc.users:
+    resource: "@wagesBundle/Controller/acc_usersController.php"
+    type:     annotation
+
+wages_acc.users.groups:
+    resource: "@wagesBundle/Controller/acc_users_groupsController.php"
+    type:     annotation
+
+wages_acc.mutuelle:
+    resource: "@wagesBundle/Controller/acc_mutuelleController.php"
+    type:     annotation
+
+wages_acc.companies:
+    resource: "@wagesBundle/Controller/acc_companiesController.php"
+    type:     annotation
+
 wages:
     resource: "@wagesBundle/Resources/config/routing.yml"
     prefix:   /

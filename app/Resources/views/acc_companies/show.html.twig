@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Acc_company</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ acc_company.id }}</td>
+            </tr>
+            <tr>
+                <th>Socialrason</th>
+                <td>{{ acc_company.socialrason }}</td>
+            </tr>
+            <tr>
+                <th>Siret</th>
+                <td>{{ acc_company.siret }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ acc_company.phone }}</td>
+            </tr>
+            <tr>
+                <th>Ccn</th>
+                <td>{{ acc_company.ccn }}</td>
+            </tr>
+            <tr>
+                <th>Existsbefore</th>
+                <td>{% if acc_company.existsbefore %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Existsbeforevalue</th>
+                <td>{{ acc_company.existsbeforevalue }}</td>
+            </tr>
+            <tr>
+                <th>Employeesnumber</th>
+                <td>{{ acc_company.employeesnumber }}</td>
+            </tr>
+            <tr>
+                <th>Declacadres</th>
+                <td>{% if acc_company.declacadres %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Cadrenumber</th>
+                <td>{{ acc_company.cadrenumber }}</td>
+            </tr>
+            <tr>
+                <th>Ccpyesno</th>
+                <td>{% if acc_company.ccpyesno %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Ccp</th>
+                <td>{{ acc_company.ccp }}</td>
+            </tr>
+            <tr>
+                <th>Ssw</th>
+                <td>{{ acc_company.ssw }}</td>
+            </tr>
+            <tr>
+                <th>Rrcname</th>
+                <td>{{ acc_company.rrcname }}</td>
+            </tr>
+            <tr>
+                <th>Rrcnumcontract</th>
+                <td>{{ acc_company.rrcnumcontract }}</td>
+            </tr>
+            <tr>
+                <th>Mutuellecontractnum</th>
+                <td>{{ acc_company.mutuellecontractnum }}</td>
+            </tr>
+            <tr>
+                <th>Mutuellemonthlybonusamount</th>
+                <td>{{ acc_company.mutuelleMonthlyBonusAmount }}</td>
+            </tr>
+            <tr>
+                <th>Mutuellamountonemplayercharge</th>
+                <td>{{ acc_company.mutuellAmountonEmplayerCharge }}</td>
+            </tr>
+            <tr>
+                <th>Prevoyancecontractnum</th>
+                <td>{{ acc_company.prevoyanceContractNum }}</td>
+            </tr>
+            <tr>
+                <th>Retirementcontractnum</th>
+                <td>{{ acc_company.retirementContractNum }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('companies_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('companies_edit', { 'id': acc_company.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

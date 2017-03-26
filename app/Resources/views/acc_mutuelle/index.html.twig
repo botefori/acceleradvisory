@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Acc_mutuelles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for acc_mutuelle in acc_mutuelles %}
+            <tr>
+                <td><a href="{{ path('mutuelle_show', { 'id': acc_mutuelle.id }) }}">{{ acc_mutuelle.id }}</a></td>
+                <td>{{ acc_mutuelle.designation }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('mutuelle_show', { 'id': acc_mutuelle.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('mutuelle_edit', { 'id': acc_mutuelle.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mutuelle_new') }}">Create a new acc_mutuelle</a>
+        </li>
+    </ul>
+{% endblock %}

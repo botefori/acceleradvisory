@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Acc_users_groups list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for acc_users_group in acc_users_groups %}
+            <tr>
+                <td><a href="{{ path('usergroups_show', { 'id': acc_users_group.id }) }}">{{ acc_users_group.id }}</a></td>
+                <td>{{ acc_users_group.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('usergroups_show', { 'id': acc_users_group.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('usergroups_edit', { 'id': acc_users_group.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('usergroups_new') }}">Create a new acc_users_group</a>
+        </li>
+    </ul>
+{% endblock %}

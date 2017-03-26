@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Acc_retirement_organisations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for acc_retirement_organisation in acc_retirement_organisations %}
+            <tr>
+                <td><a href="{{ path('retirementorganism_show', { 'id': acc_retirement_organisation.id }) }}">{{ acc_retirement_organisation.id }}</a></td>
+                <td>{{ acc_retirement_organisation.designation }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('retirementorganism_show', { 'id': acc_retirement_organisation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('retirementorganism_edit', { 'id': acc_retirement_organisation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('retirementorganism_new') }}">Create a new acc_retirement_organisation</a>
+        </li>
+    </ul>
+{% endblock %}
