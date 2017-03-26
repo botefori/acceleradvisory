@@ -39,7 +39,7 @@ class acc_users_groupsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $acc_users_group = new Acc_users_group();
+        $acc_users_group = new acc_users_groups();
         $form = $this->createForm('wagesBundle\Form\acc_users_groupsType', $acc_users_group);
         $form->handleRequest($request);
 

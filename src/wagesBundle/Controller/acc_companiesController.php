@@ -39,7 +39,7 @@ class acc_companiesController extends Controller
      */
     public function newAction(Request $request)
     {
-        $acc_company = new Acc_company();
+        $acc_company = new acc_companies();
         $form = $this->createForm('wagesBundle\Form\acc_companiesType', $acc_company);
         $form->handleRequest($request);
 
